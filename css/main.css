@@ -31,7 +31,7 @@ body {
 #myNavbar:last-child {
   position: relative;
   line-height: 40px;
-  margin-bottom: 2.5px;
+  margin-bottom: -1px;
   margin-top: 2.5px;
   color: white; }
   #myNavbar:last-child p {
