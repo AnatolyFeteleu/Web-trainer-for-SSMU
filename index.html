@@ -22,12 +22,12 @@
                 direction: 'horizontal',
                 verticalCentered: true,
                 sectionsColor: [],
-                anchors: ['welcome-page','page1', 'page2', 'page3', 'page4'],
+                anchors: ['welcome-page','stage1', 'stage2', 'stage3', 'stage4'],
                 navigation: {
                     'textColor': '#000',
                     'bulletsColor': '#000',
                     'position': 'right',
-                    'tooltips': ['Welcome','Page 1', 'Page 2', 'Page 3', 'Page 4']
+                    'tooltips': ['Приветствие','Этап 1', 'Этап 2', 'Этап 3', 'Этап 4']
                 },
                 scrollingSpeed: 700,
                 easing: 'swing',
@@ -84,12 +84,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#" style="text-transform: none;">Веб-тренажер СибГМУ</a>
         </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
+        <div class="collapse navbar-collapse " id="myNavbar">
             <ul class="nav navbar-nav" id="menu">
-                <li class="active" data-menuanchor="welcome-page"><a href="#welcome-page">Home</a></li>
-
+                <li class="active" data-menuanchor="welcome-page"><a href="#welcome-page"><span class="glyphicon glyphicon-home"></span></a></li>
                 <!--<li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Заголовок 1
                         <span class="caret"></span></a>
@@ -99,15 +97,16 @@
                             <li><a href="#">Подзаголовок 3</a></li>
                         </ul>
                 </li>-->
-                <li data-menuanchor="page1"><a href="#page1">Page 1</a></li>
-                <li data-menuanchor="page2"><a href="#page2">Page 2</a></li>
-                <li data-menuanchor="page3"><a href="#page3">Page 3</a></li>
-                <li data-menuanchor="page4"><a href="#page4">Page 4</a></li>
+                <li data-menuanchor="stage1"><a href="#stage1">Этап 1</a></li>
+                <li data-menuanchor="stage2"><a href="#stage2">Этап 2</a></li>
+                <li data-menuanchor="stage3"><a href="#stage3">Этап 3</a></li>
+                <li data-menuanchor="stage4"><a href="#stage4">Этап 4</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-right" class="modal-dialog-font">
                 <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-user"></span> Регистрация</a></li>
                 <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-log-in"></span> Вход</a></li>
             </ul>
+            <p class="text-center">Медицинский интерактивный веб-тренажер СибГМУ</p>
         </div>
     </div>
 </nav>
