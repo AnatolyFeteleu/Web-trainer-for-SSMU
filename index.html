@@ -64,13 +64,23 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Modal Header</h4>
+                <h4 class="modal-title text-center">Вход</h4>
             </div>
             <div class="modal-body">
-                <p>This is a small modal.</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <form>
+                    <div class="form-group">
+                        <label for="email">Email address:</label>
+                        <input type="email" class="form-control" id="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd">Password:</label>
+                        <input type="password" class="form-control" id="pwd">
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox"> Remember me</label>
+                    </div>
+                    <button type="submit" class="btn btn-success btn-block">Submit</button>
+                </form>
             </div>
         </div>
     </div>
@@ -103,10 +113,10 @@
                 <li data-menuanchor="stage4"><a href="#stage4">Этап 4</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right" class="modal-dialog-font">
-                <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-user"></span> Регистрация</a></li>
+                <li><a href="registration.html"><span class="glyphicon glyphicon-user"></span> Регистрация</a></li>
                 <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-log-in"></span> Вход</a></li>
             </ul>
-            <p class="text-center">Медицинский интерактивный веб-тренажер СибГМУ</p>
+            <p class="text-center">Медицинский интерактивный тренажер</p>
         </div>
     </div>
 </nav>
@@ -114,25 +124,24 @@
     <div class="section" id="welcome" style="height: 100%; background-color: white">
         <!-- Теги и прочее -->
         <div class="jumbotron text-center">
-            <h1>Добро пожаловать на веб-сайт тренажера СибГМУ!</h1>
-            <p>Resize this responsive page to see the effect!</p>
+            <h1>Добро пожаловать!</h1>
+            <p>Основная цель данного веб-тренажера - это развитие аналитического мышления,
+                а также закрепление знаний и навыков полученных в высших медицинских учреждениях.</p>
         </div>
         <div class="container">
+            <h2 class="text-center">Основные правила использования:</h2>
             <div class="row">
                 <div class="col-sm-4">
-                    <h3>Column 1</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                    <h3>Правило 1</h3>
+                    <p>Описания правила использования тренажера...</p>
                 </div>
                 <div class="col-sm-4">
-                    <h3>Column 2</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                    <h3>Правило 2</h3>
+                    <p>Описания правила использования тренажера...</p>
                 </div>
                 <div class="col-sm-4">
-                    <h3>Column 3</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                    <h3>Правило 3</h3>
+                    <p>Описания правила использования тренажера...</p>
                 </div>
             </div>
         </div>
