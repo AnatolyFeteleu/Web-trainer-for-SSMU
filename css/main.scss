@@ -31,23 +31,23 @@
 $blue: blue;
 
 body {
-	background-color: #f1f1f1;
+  background-color: #f1f1f1;
 }
 
 .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
-	background-color: #779cca !important;
+  background-color: #779cca !important;
 }
 
 #myNavbar #menu{
-   font-family: "GothamProLight";
- }
+  font-family: "GothamProLight";
+}
 
 #myNavbar ul:last-child{
   font-family: "GothamProLight";
 }
 
 #myNavbar:last-child {
-position: relative;
+  position: relative;
   line-height: 40px;
   margin-bottom: -1px;
   margin-top: 2.5px;

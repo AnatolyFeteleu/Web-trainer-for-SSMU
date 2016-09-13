@@ -59,32 +59,6 @@
     <title>Тренажер СибГМУ</title>
 </head>
 <body ng-app="AngApp">
-<div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title text-center">Вход</h4>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="form-group">
-                        <label for="email">Email-адрес:</label>
-                        <input type="email" class="form-control" id="email">
-                    </div>
-                    <div class="form-group">
-                        <label for="pwd">Пароль:</label>
-                        <input type="password" class="form-control" id="pwd">
-                    </div>
-                    <div class="checkbox">
-                        <label><input type="checkbox"> Запомнить</label>
-                    </div>
-                    <button type="submit" class="btn btn-success btn-block">Подтвердить</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
 <nav class="navbar navbar-inverse" style="background-color: #5f5f5f;">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -113,8 +87,8 @@
                 <li data-menuanchor="stage4"><a href="#stage4">Этап 4</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right" class="modal-dialog-font">
-                <li><a href="registration.html"><span class="glyphicon glyphicon-user"></span> Регистрация</a></li>
-                <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-log-in"></span> Вход</a></li>
+                <li><a href="profile.html"><span class="glyphicon glyphicon-log-in"></span> Личный кабинет</a></li>
+                <li><a href="index.html"><span class="glyphicon glyphicon-log-out"></span> Выход</a></li>
             </ul>
             <p class="text-center">Медицинский интерактивный тренажер</p>
         </div>
