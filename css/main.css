@@ -40,4 +40,11 @@ body {
     text-transform: none;
     margin-top: 5px; }
 
+.main-cont a {
+  border-radius: 0px !important; }
+
+#myModal {
+  font-family: "GothamProLight";
+  font-weight: normal; }
+
 /*# sourceMappingURL=main.css.map */

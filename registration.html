@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/registartion.css">
+    <link rel="stylesheet" type="text/css" href="css/layout/header.css" />
+
+    <!-- jQuery library -->
+    <script type="text/javascript" src="js/jquery-1.12.2.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <title>Регистрация</title>
+</head>
+<body ng-app="AngApp">
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title text-center">Вход</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="email">Email address:</label>
+                        <input type="email" class="form-control" id="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd">Password:</label>
+                        <input type="password" class="form-control" id="pwd">
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox"> Remember me</label>
+                    </div>
+                    <button type="submit" class="btn btn-success btn-block">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<nav class="navbar navbar-inverse navbar-reg navbar-fixed-top" style="background-color: #5f5f5f;">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse " id="myNavbar">
+            <ul class="nav navbar-nav" id="menu">
+                <li class="active"><a href="index.html#stage1"><span class="glyphicon glyphicon-arrow-left"></span></a></li>
+                <!--<li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Заголовок 1
+                        <span class="caret"></span></a>
+                        <ul class="dropdown-menu" style="z-index: 9999999;">
+                            <li><a href="#">Подзаголовок 1</a></li>
+                            <li><a href="#">Подзаголовок 2</a></li>
+                            <li><a href="#">Подзаголовок 3</a></li>
+                        </ul>
+                </li>-->
+                <li><a href="index.html">О веб-тренажере</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" class="modal-dialog-font">
+                <li><a href="registration.html"><span class="glyphicon glyphicon-user"></span> Регистрация</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-log-in"></span> Вход</a></li>
+            </ul>
+            <p class="text-center">Медицинский интерактивный тренажер</p>
+        </div>
+    </div>
+</nav>
+<br>
+<br>
+<br>
+<h3 class="text-center reg-text">Регистрация</h3>
+<div class="container-fluid reg-block-main">
+    <br>
+    <h4 class="main-info-reg">Основная информация</h4>
+    <hr>
+    <div class="row">
+        <div class="col-sm-6 reg-block">
+            <form>
+                <div class="form-group">
+                    <label for="email">Почтовый ящик:</label>
+                    <input type="email" class="form-control" id="email">
+                </div>
+                <div class="form-group">
+                    <label for="pwd">Пароль:</label>
+                    <input type="password" class="form-control" id="pwd">
+                </div>
+                <div class="form-group">
+                    <label for="pwd">Подтверждение:</label>
+                    <input type="password" class="form-control" id="pwd">
+                </div>
+            </form>
+        </div>
+    </div>
+    <br>
+    <br>
+    <h4 class="submain-info-reg">Дополнительная информация</h4>
+    <hr>
+    <br>
+    <div class="row submenu-reg-block">
+        <div class="col-md-4">
+            <form>
+                <div class="form-group">
+                    <label for="faculty">Факультет:</label>
+                    <input type="text" class="form-control" id="faculty">
+                </div>
+                <div class="form-group">
+                    <label for="year">Курс:</label>
+                    <select class="form-control" id="year">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="groupnum">№ группы:</label>
+                    <input type="text" class="form-control" id="groupnum">
+                </div>
+            </form>
+        </div>
+        <div class="col-md-7 sec-col">
+            <form>
+                <br>
+                <div class="form-group">
+                    <label for="firstname">Имя:</label>
+                    <input type="text" class="form-control" id="firstname">
+                </div>
+                <div class="form-group">
+                    <label for="email">Фамилия:</label>
+                    <input type="text" class="form-control" id="surname">
+                </div>
+                <div class="form-group">
+                    <label for="fathername">Отчество:</label>
+                    <input type="text" class="form-control" id="fathername">
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <br>
+    <br>
+    <a href="authorized.html#patient" class="btn btn-success center-block" style="width: 35%">Приступим <span class="glyphicon glyphicon-ok"></span></a>
+    <br>
+    <br>
+</div>
+<script src="js/controllers/main.controller.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+@import "main.css";
+
+body {
+  font-family: "GothamProLight";
+}
+
+.reg-text {
+  font-family: "GothamProLight";
+  letter-spacing: 3px;
+}
+
+.main-info-reg {
+  margin-left: 115px;
+}
+
+.submain-info-reg {
+  @extend .main-info-reg;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  margin-left: 115px;
+  width: 82.5%;
+  background: #e4e4e4;
+  background-image: linear-gradient(to right, #3c3f41, #4e5153, #616466, rgba(255, 255, 255, 0));
+}
+
+.reg-block {
+  margin-left: 115px;
+}
+
+.submenu-reg-block {
+  margin-left: 100px;
+
+  .sec-col {
+    margin-top: -19px;
+  }
+}
+
+.reg-block-main:last-child {
+  margin: auto;
+}
+
+.btn {
+  border-radius: 0px !important;
+}
