@@ -28,10 +28,24 @@
   font-weight: normal;
 }
 
+@font-face {
+  font-family: "GothamProRegular";
+  src: url("../fonts/GothamProRegular/GothamProRegular.eot");
+  src: url("../fonts/GothamProRegular/GothamProRegular.eot?#iefix")format("embedded-opentype"),
+  url("../fonts/GothamProRegular/GothamProRegular.woff") format("woff"),
+  url("../fonts/GothamProRegular/GothamProRegular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
 $blue: blue;
 
 body {
   background-color: #f1f1f1;
+}
+
+ul li {
+  list-style-type: none;
 }
 
 .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
@@ -48,7 +62,7 @@ body {
 
 #myNavbar:last-child {
   position: relative;
-  line-height: 40px;
+  line-height: 30px;
   margin-bottom: -1px;
   margin-top: 2.5px;
   color: white;
@@ -56,7 +70,7 @@ body {
     font-family: GothamProLight;
     font-size: 16px;
     text-transform: none;
-    margin-top: 5px;
+    margin-top: 10px;
   }
 }
 
