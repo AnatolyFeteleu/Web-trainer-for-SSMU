@@ -154,25 +154,87 @@
     <div class="section" id="section2" style="height: 100%; background-color: white">
         <!-- Теги и прочее -->
         <div class="jumbotron text-center">
-            <h1>My First Bootstrap Page</h1>
-            <p>Resize this responsive page to see the effect!</p>
+            <h2>Пациент №1</h2>
+            <h4><span style="font-weight: bold">Цель:</span> Поставить верный диагноз</h4>
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-sm-4">
-                    <h3>Column 1</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                <div class="col-sm-5">
+                    <h3 class="text-center">Исходные данные: </h3>
+                    <br>
+                    <div class="patients text-justify" ng-repeat='patients in ssmu.patients'>
+                        <p><span>Половая принадлежнотсь:</span> {{patients.first.gender}}.</p>
+                        <p><span>Возраст:</span> {{patients.first.age}} лет.</p>
+                        <div class="form-group">
+                            <p><span>Заметки:</span> </p>
+                            <textarea class="form-control" rows="10" id="comment">{{patients.first.notes}}</textarea>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-sm-4">
-                    <h3>Column 2</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                <div class="col-sm-1"></div>
+                <div class="col-sm-6">
+                    <h3 class="text-center">Обследование: </h3><br>
+                    <div class="btn-group btn-group-justified buttons-anamnez">
+                        <div class="btn-group">
+                            <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                Анамнез <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Анамнез жизни</a></li>
+                                <li><a href="#">Анамнез болезни</a></li>
+                                <li><a href="#">Анамнез семьи</a></li>
+                            </ul>
+                        </div>
+                        <div class="btn-group">
+                            <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                Анализы <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Общий анализ крови</a></li>
+                                <li><a href="#">Общий анализ мочи</a></li>
+                                <li><a href="#">Копрограмма</a></li>
+                                <li><a href="#">Биохимический анализ крови</a></li>
+                            </ul>
+                        </div>
+                        <div class="btn-group">
+                            <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                Объективный осомотр <span class="caret"></span></a>
+                            <ul class="dropdown-menu dropdown-anamnez" role="menu">
+                                <li class="text-muted text-center" style="font-family: GothamProRegular">Дыхательная система</li>
+                                <li><a href="#">Перкуссия</a></li>
+                                <li><a href="#">Пальпация</a></li>
+                                <li><a href="#">Аскульптация</a></li>
+                                <li class="text-muted text-center" style="font-family: GothamProRegular">Исследование сосудов</li>
+                                <li><a href="#">Перкуссия</a></li>
+                                <li><a href="#">Пальпация</a></li>
+                                <li><a href="#">Аскульптация</a></li>
+                                <li class="text-muted text-center" style="font-family: GothamProRegular">Система пищеварения</li>
+                                <li><a href="#">Перкуссия</a></li>
+                                <li><a href="#">Пальпация</a></li>
+                                <li><a href="#">Аскульптация</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <br>
+                        <h3 class="text-center">Результаты обследования</h3>
+                        <br>
+                        <div class="form-group">
+                            <textarea class="form-control" rows="8" id="comment"></textarea>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-sm-4">
-                    <h3>Column 3</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <h3 class="text-center">Проверочный тест: </h3><br>
+                    <h4 class="text-center">Сочетание таких качеств как эмоциональная дистанционированность врача от глубинных проблем пациента, ориентация на симптомы, ориентация на технократический подход к лечению входит в структуру одного из следующих психологических типов врача</h4>
+                    <br>
+                    <div class="text-center"><label class="radio-inline"><input type="radio" name="optradio">Ригидность</label>
+                        <label class="radio-inline"><input type="radio" name="optradio">Сопереживающего</label>
+                        <label class="radio-inline"><input type="radio" name="optradio">Эмоционально-нейтрального</label>
+                        <label class="radio-inline"><input type="radio" name="optradio">Апатичного</label>
+                        <label class="radio-inline"><input type="radio" name="optradio">Директивного</label>
+                        <label class="radio-inline"><input type="radio" name="optradio">Не директивного</label>
+                    </div>
                 </div>
             </div>
         </div>

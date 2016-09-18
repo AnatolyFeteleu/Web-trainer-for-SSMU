@@ -40,7 +40,7 @@ ul li {
 #myNavbar:last-child {
   position: relative;
   line-height: 30px;
-  margin-bottom: px;
+  margin-bottom: -1px;
   margin-top: 2.5px;
   color: white; }
   #myNavbar:last-child p {
@@ -55,5 +55,28 @@ ul li {
 #myModal {
   font-family: "GothamProLight";
   font-weight: normal; }
+
+textarea {
+  width: 90%;
+  height: 200px;
+  resize: none; }
+
+.patients span {
+  font-family: "GothamProMedium"; }
+
+.buttons-anamnez a:first-child {
+  border-radius: 0px !important; }
+
+.btn-primary {
+  background-color: #779cca;
+  border-color: #c7c7c7 !important; }
+
+.dropdown-anamnez > li:nth-child(4n-7) {
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: 400;
+  line-height: 1.42857143;
+  white-space: nowrap; }
 
 /*# sourceMappingURL=main.css.map */

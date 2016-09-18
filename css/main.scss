@@ -82,3 +82,30 @@ ul li {
   font-family: "GothamProLight";
   font-weight: normal;
 }
+
+textarea {
+  width: 90%;
+  height: 200px;
+  resize: none;
+}
+
+.patients span {
+  font-family: "GothamProMedium";
+}
+
+.buttons-anamnez a:first-child {
+  border-radius: 0px !important;
+}
+
+.btn-primary {
+  background-color: #779cca;
+  border-color: #c7c7c7 !important;
+}
+.dropdown-anamnez>li:nth-child(4n-7) {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857143;
+    white-space: nowrap;
+  }
