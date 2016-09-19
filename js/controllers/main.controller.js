@@ -4,6 +4,13 @@ app.controller('MainController', function() {
 
     var ssmu = this;
 
+    ssmu.user = [
+        {
+            firstname: 'Анатолий',
+            lastname: 'Фетелеу',
+            score: 20
+        }
+    ];
     ssmu.patients = [
         {
             first:{

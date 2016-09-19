@@ -58,7 +58,46 @@
     </script>
     <title>Тренажер СибГМУ</title>
 </head>
-<body ng-app="AngApp">
+<body ng-app="AngApp" ng-controller="MainController as ssmu">
+<div class="modal-windows" ng-repeat="user in ssmu.user">
+    <div class="modal fade" id="success-modal" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title text-center">Поздравляю!</h4>
+                </div>
+                <div class="modal-body">
+                    <p>{{user.firstname}} {{user.lastname}}, Вы прошли первый этап!</p>
+                    <p>Ваши баллы: {{user.score}} баллов.</p>
+                    <p>Вам досутпен второй этап данного тренажера!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="error-modal" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title text-center">Не повезло!</h4>
+                </div>
+                <div class="modal-body">
+                    <p>{{user.firstname}} {{user.lastname}}, Вы не прошли первый этап!</p>
+                    <p>Ваши баллы: {{user.score}} баллов.</p>
+                    <br>
+                    <p>Обратите внимание на: ...</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <nav class="navbar navbar-inverse" style="background-color: #5f5f5f;">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -94,7 +133,7 @@
         </div>
     </div>
 </nav>
-<div id="pagepiling" ng-controller="MainController as ssmu">
+<div id="pagepiling">
     <div class="section" id="welcome" style="height: 100%; background-color: white">
         <!-- Теги и прочее -->
         <div class="jumbotron text-center">
@@ -237,83 +276,87 @@
                     </div>
                 </div>
             </div>
+            <br>
+            <button type="button" class="btn btn-success center-block" data-toggle="modal" data-target="#success-modal" style="border-radius: 0px">Подтвердить <span class="glyphicon glyphicon-ok"></span></button>
         </div>
     </div>
-    <div class="section" id="section3" style="height: 100%; background-color: white;">
-        <div class="jumbotron text-center">
-            <h1>My Second Bootstrap Page</h1>
-            <p>Resize this responsive page to see the effect!</p>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-4">
-                    <h3>Column 1</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-                </div>
-                <div class="col-sm-4">
-                    <h3>Column 2</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-                </div>
-                <div class="col-sm-4">
-                    <h3>Column 3</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-                </div>
+</div>
+</div>
+<div class="section" id="section3" style="height: 100%; background-color: white;">
+    <div class="jumbotron text-center">
+        <h1>My Second Bootstrap Page</h1>
+        <p>Resize this responsive page to see the effect!</p>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <h3>Column 1</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+            </div>
+            <div class="col-sm-4">
+                <h3>Column 2</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+            </div>
+            <div class="col-sm-4">
+                <h3>Column 3</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
             </div>
         </div>
     </div>
-    <div class="section" id="section4" style="height: 100%; background-color: white;">
-        <div class="jumbotron text-center">
-            <h1>My Third Bootstrap Page</h1>
-            <p>Resize this responsive page to see the effect!</p>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-4">
-                    <h3>Column 1</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-                </div>
-                <div class="col-sm-4">
-                    <h3>Column 2</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-                </div>
-                <div class="col-sm-4">
-                    <h3>Column 3</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-                </div>
+</div>
+<div class="section" id="section4" style="height: 100%; background-color: white;">
+    <div class="jumbotron text-center">
+        <h1>My Third Bootstrap Page</h1>
+        <p>Resize this responsive page to see the effect!</p>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <h3>Column 1</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+            </div>
+            <div class="col-sm-4">
+                <h3>Column 2</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+            </div>
+            <div class="col-sm-4">
+                <h3>Column 3</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
             </div>
         </div>
     </div>
-    <div class="section" id="section5" style="height: 100%; background-color: white;">
-        <div class="jumbotron text-center">
-            <h1>My Fourth Bootstrap Page</h1>
-            <p>Resize this responsive page to see the effect!</p>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-4">
-                    <h3>Column 1</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-                </div>
-                <div class="col-sm-4">
-                    <h3>Column 2</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-                </div>
-                <div class="col-sm-4">
-                    <h3>Column 3</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-                </div>
+</div>
+<div class="section" id="section5" style="height: 100%; background-color: white;">
+    <div class="jumbotron text-center">
+        <h1>My Fourth Bootstrap Page</h1>
+        <p>Resize this responsive page to see the effect!</p>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <h3>Column 1</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+            </div>
+            <div class="col-sm-4">
+                <h3>Column 2</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+            </div>
+            <div class="col-sm-4">
+                <h3>Column 3</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
             </div>
         </div>
     </div>
+</div>
 </div>
 </div>
 <!-- Controllers -->
