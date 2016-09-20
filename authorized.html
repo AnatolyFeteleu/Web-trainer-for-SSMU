@@ -194,19 +194,18 @@
         <!-- Теги и прочее -->
         <div class="jumbotron text-center">
             <h2>Пациент №1</h2>
-            <h4><span style="font-weight: bold">Цель:</span> Поставить верный диагноз</h4>
         </div>
         <div class="container">
             <div class="row">
                 <div class="col-sm-5">
                     <h3 class="text-center">Исходные данные: </h3>
                     <br>
-                    <div class="patients text-justify" ng-repeat='patients in ssmu.patients'>
-                        <p><span>Половая принадлежнотсь:</span> {{patients.first.gender}}.</p>
-                        <p><span>Возраст:</span> {{patients.first.age}} лет.</p>
+                    <div class="patients text-justify" ng-repeat='patient in ssmu.patients'>
+                        <p><span>Половая принадлежнотсь:</span> {{patient.first.gender}}.</p>
+                        <p><span>Возраст:</span> {{patient.first.age}} лет.</p>
                         <div class="form-group">
-                            <p><span>Заметки:</span> </p>
-                            <textarea class="form-control" rows="10" id="comment">{{patients.first.notes}}</textarea>
+                            <p><span>Заметки:</span></p>
+                            <textarea class="form-control" rows="10" id="comment">{{patient.first.notes}}</textarea>
                         </div>
                     </div>
                 </div>
@@ -218,69 +217,320 @@
                             <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                                 Анамнез <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Анамнез жизни</a></li>
-                                <li><a href="#">Анамнез болезни</a></li>
-                                <li><a href="#">Анамнез семьи</a></li>
+                                <li><a href="#" ng-click="anamnezmenu = 11">Анамнез жизни</a></li>
+                                <li><a href="#" ng-click="anamnezmenu = 12">Анамнез болезни</a></li>
+                                <li><a href="#" ng-click="anamnezmenu = 13">Анамнез семьи</a></li>
                             </ul>
                         </div>
                         <div class="btn-group">
                             <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                                 Анализы <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Общий анализ крови</a></li>
-                                <li><a href="#">Общий анализ мочи</a></li>
-                                <li><a href="#">Копрограмма</a></li>
-                                <li><a href="#">Биохимический анализ крови</a></li>
+                                <li><a href="#" ng-click="analysismenu = 21">Общий анализ крови</a></li>
+                                <li><a href="#" ng-click="analysismenu = 22">Общий анализ мочи</a></li>
+                                <li><a href="#" ng-click="analysismenu = 23">Копрограмма</a></li>
+                                <li><a href="#" ng-click="analysismenu = 24">Биохимический анализ крови</a></li>
                             </ul>
                         </div>
                         <div class="btn-group">
                             <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                                 Объективный осомотр <span class="caret"></span></a>
                             <ul class="dropdown-menu dropdown-anamnez" role="menu">
-                                <li class="text-muted text-center" style="font-family: GothamProRegular">Дыхательная система</li>
-                                <li><a href="#">Перкуссия</a></li>
-                                <li><a href="#">Пальпация</a></li>
-                                <li><a href="#">Аскульптация</a></li>
-                                <li class="text-muted text-center" style="font-family: GothamProRegular">Исследование сосудов</li>
-                                <li><a href="#">Перкуссия</a></li>
-                                <li><a href="#">Пальпация</a></li>
-                                <li><a href="#">Аскульптация</a></li>
-                                <li class="text-muted text-center" style="font-family: GothamProRegular">Система пищеварения</li>
-                                <li><a href="#">Перкуссия</a></li>
-                                <li><a href="#">Пальпация</a></li>
-                                <li><a href="#">Аскульптация</a></li>
+                                <li class="text-muted text-center" style="font-family: GothamProRegular">Дыхательная
+                                    система
+                                </li>
+                                <li><a href="#" ng-click="moomenu = 311">Перкуссия</a></li>
+                                <li><a href="#" ng-click="moomenu = 312">Пальпация</a></li>
+                                <li><a href="#" ng-click="moomenu = 313">Аскульптация</a></li>
+                                <li class="text-muted text-center" style="font-family: GothamProRegular">Исследование
+                                    сосудов
+                                </li>
+                                <li><a href="#" ng-click="moomenu = 321">Перкуссия</a></li>
+                                <li><a href="#" ng-click="moomenu = 323">Пальпация</a></li>
+                                <li><a href="#" ng-click="moomenu = 323">Аскульптация</a></li>
+                                <li class="text-muted text-center" style="font-family: GothamProRegular">Система
+                                    пищеварения
+                                </li>
+                                <li><a href="#" ng-click="moomenu = 331">Перкуссия</a></li>
+                                <li><a href="#" ng-click="moomenu = 333">Пальпация</a></li>
+                                <li><a href="#" ng-click="moomenu = 333">Аскульптация</a></li>
                             </ul>
                         </div>
                     </div>
-                    <div class="col-sm-12">
+                    <div class="col-sm-12 results-tab">
                         <br>
                         <h3 class="text-center">Результаты обследования</h3>
-                        <br>
-                        <div class="form-group">
-                            <textarea class="form-control" rows="8" id="comment"></textarea>
+                        <div class="anamnez">
+                            <div class="panel-group" ng-show="anamnezmenu == 11" id="accordion">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse11">Анамнез</a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapse11" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <h5 class="text-center">Анамнез жизни</h5>
+                                            {{anamnez.life.text}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-group" ng-show="anamnezmenu == 12" id="accordion">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse12">Анамнез</a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapse12" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <h5 class="text-center">Анамнез болезни</h5>
+                                            {{anamnez.illness.text}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-group" ng-show="anamnezmenu == 13" id="accordion">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse13">Анамнез</a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapse13" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <h5 class="text-center">Анамнез семьи</h5>
+                                            {{anamnez.family.text}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="analysis">
+                            <div class="panel-group" ng-show="analysismenu == 21" id="accordion">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse21">Анализы</a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapse21" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <h5 class="text-center">Общий анализ крови</h5>
+                                            {{analysis.blood.text}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-group" ng-show="analysismenu == 22" id="accordion">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse22">Анализы</a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapse22" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <h5 class="text-center">Общий анализ мочи</h5>
+                                            {{analysis.urinalysis.text}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-group" ng-show="analysismenu == 23" id="accordion">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse23">Анализы</a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapse23" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <h5 class="text-center">Копрограмма</h5>
+                                            {{analysis.coprogram.text}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-group" ng-show="analysismenu == 24" id="accordion">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse24">Анализы</a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapse24" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <h5 class="text-center">Биохимический анализ крови</h5>
+                                            {{analysis.biochemical.text}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="moo">
+                            <div class="panel-group" ng-show="moomenu == 311" id="accordion">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse311">Анализы</a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapse311" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <h5 class="text-center">Перкуссия</h5>
+                                            {{analysis.blood.text}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-group" ng-show="moomenu == 312" id="accordion">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse312">Объективный осмотр</a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapse312" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <h5 class="text-center">Пальпация</h5>
+                                            {{analysis.urinalysis.text}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-group" ng-show="moomenu == 313" id="accordion">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse313">Объективный осмотр</a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapse313" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <h5 class="text-center">Аскульптация</h5>
+                                            {{analysis.coprogram.text}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-group" ng-show="moomenu == 321" id="accordion">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse321">Объективный осмотр</a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapse321" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <h5 class="text-center">Перкуссия</h5>
+                                            {{analysis.biochemical.text}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-group" ng-show="moomenu == 322" id="accordion">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse322">Объективный осмотр</a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapse322" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <h5 class="text-center">Пальпация</h5>
+                                            {{analysis.biochemical.text}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-group" ng-show="moomenu == 323" id="accordion">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse313">Объективный осмотр</a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapse323" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <h5 class="text-center">Аскульптация</h5>
+                                            {{analysis.biochemical.text}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-group" ng-show="moomenu == 331" id="accordion">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse331">Объективный осмотр</a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapse331" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <h5 class="text-center">Перкуссия</h5>
+                                            {{analysis.biochemical.text}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-group" ng-show="moomenu == 332" id="accordion">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse332">Объективный осмотр</a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapse332" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <h5 class="text-center">Пальпация</h5>
+                                            {{analysis.biochemical.text}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-group" ng-show="moomenu == 333" id="accordion">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse333">Объективный осмотр</a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapse333" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <h5 class="text-center">Аскульптация</h5>
+                                            {{analysis.biochemical.text}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-sm-12">
-                    <h3 class="text-center">Проверочный тест: </h3><br>
-                    <h4 class="text-center">Сочетание таких качеств как эмоциональная дистанционированность врача от глубинных проблем пациента, ориентация на симптомы, ориентация на технократический подход к лечению входит в структуру одного из следующих психологических типов врача</h4>
-                    <br>
-                    <div class="text-center"><label class="radio-inline"><input type="radio" name="optradio">Ригидность</label>
-                        <label class="radio-inline"><input type="radio" name="optradio">Сопереживающего</label>
-                        <label class="radio-inline"><input type="radio" name="optradio">Эмоционально-нейтрального</label>
-                        <label class="radio-inline"><input type="radio" name="optradio">Апатичного</label>
-                        <label class="radio-inline"><input type="radio" name="optradio">Директивного</label>
-                        <label class="radio-inline"><input type="radio" name="optradio">Не директивного</label>
-                    </div>
+
+            <div class="col-sm-12">
+                <h3 class="text-center">Проверочный тест: </h3><br>
+                <h4 class="text-center">Сочетание таких качеств как эмоциональная дистанционированность врача от
+                    глубинных проблем пациента, ориентация на симптомы, ориентация на технократический подход к
+                    лечению входит в структуру одного из следующих психологических типов врача</h4>
+                <br>
+                <div class="text-center"><label class="radio-inline"><input type="radio" name="optradio">Ригидность</label>
+                    <label class="radio-inline"><input type="radio" name="optradio">Сопереживающего</label>
+                    <label class="radio-inline"><input type="radio"
+                                                       name="optradio">Эмоционально-нейтрального</label>
+                    <label class="radio-inline"><input type="radio" name="optradio">Апатичного</label>
+                    <label class="radio-inline"><input type="radio" name="optradio">Директивного</label>
+                    <label class="radio-inline"><input type="radio" name="optradio">Не директивного</label>
                 </div>
+                <br><br>
+                <button type="button" class="btn btn-success center-block button-square"
+                        onclick="location.href='#stage2'">Выбрать ответ
+                </button>
             </div>
-            <br>
-            <button type="button" class="btn btn-success center-block" data-toggle="modal" data-target="#success-modal" style="border-radius: 0px">Подтвердить <span class="glyphicon glyphicon-ok"></span></button>
         </div>
     </div>
-</div>
 </div>
 <div class="section" id="section3" style="height: 100%; background-color: white;">
     <div class="jumbotron text-center">
@@ -356,8 +606,6 @@
             </div>
         </div>
     </div>
-</div>
-</div>
 </div>
 <!-- Controllers -->
 <script src="js/controllers/main.controller.js"></script>
