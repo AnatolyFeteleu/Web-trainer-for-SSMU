@@ -164,36 +164,41 @@
         <div class="jumbotron text-center">
             <h1>Выбор пациента</h1>
         </div>
-        <div class="container main-cont">
+        <div class="container main-cont" style="width: 85%;">
             <div class="row">
                 <div class="col-sm-4">
                     <h3 class="text-center">Пациент 1</h3>
-                    <p>Краткое сведение о недомогании пациента.</p>
-                    <p>Степень сложности выполнения заданий.</p>
+                    <div class="text-justify">
+                        <p>Краткое сведение о недомогании пациента.</p>
+                        <p>Степень сложности выполнения заданий.</p>
+                    </div>
                     <br>
-                    <a href="#stage1" type="button" class="btn btn-success center-block" style="width: 15%;"><span class="glyphicon glyphicon-ok"></span></a>
+                    <a href="#stage1" type="button" class="btn btn-success center-block" style="width: 15%; min-width: 15%"><span class="glyphicon glyphicon-ok"></span></a>
                 </div>
                 <div class="col-sm-4">
                     <h3 class="text-center">Пациент 2</h3>
-                    <p>Краткое сведение о недомогании пациента.</p>
-                    <p>Степень сложности выполнения заданий.</p>
+                    <div class="text-justify">
+                        <p>Краткое сведение о недомогании пациента.</p>
+                        <p>Степень сложности выполнения заданий.</p>
+                    </div>
                     <br>
-                    <a href="#stage1" type="button" class="btn btn-success center-block" style="width: 15%;"><span class="glyphicon glyphicon-ok"></span></a>
+                    <a href="#stage1" type="button" class="btn btn-success center-block" style="width: 15%;min-width: 15%"><span class="glyphicon glyphicon-ok"></span></a>
                 </div>
                 <div class="col-sm-4">
                     <h3 class="text-center">Пациент 3</h3>
-                    <p>Краткое сведение о недомогании пациента.</p>
-                    <p>Степень сложности выполнения заданий.</p>
+                    <div class="text-justify">
+                        <p>Краткое сведение о недомогании пациента.</p>
+                        <p>Степень сложности выполнения заданий.</p>
+                    </div>
                     <br>
-                    <a href="#stage1" type="button" class="btn btn-success center-block" style="width: 15%;"><span class="glyphicon glyphicon-ok"></span></a>
+                    <a href="#stage1" type="button" class="btn btn-success center-block" style="width: 15%;min-width: 15%"><span class="glyphicon glyphicon-ok"></span></a>
                 </div>
             </div>
         </div>
     </div>
     <div class="section" id="section2" style="height: 100%; background-color: white">
-        <!-- Теги и прочее -->
-        <div class="jumbotron text-center">
-            <h2>Пациент №1</h2>
+        <div class="page-header center-block text-center page-header-stage1" style="width: 45%">
+            <h2>Пациент 1</h2>
         </div>
         <div class="container">
             <div class="row">
@@ -201,11 +206,11 @@
                     <h3 class="text-center">Исходные данные: </h3>
                     <br>
                     <div class="patients text-justify" ng-repeat='patient in ssmu.patients'>
-                        <p><span>Половая принадлежнотсь:</span> {{patient.first.gender}}.</p>
-                        <p><span>Возраст:</span> {{patient.first.age}} лет.</p>
+                        <p><span>Половая принадлежнотсь:</span> {{patient.gender}}.</p>
+                        <p><span>Возраст:</span> {{patient.age}} лет.</p>
                         <div class="form-group">
                             <p><span>Заметки:</span></p>
-                            <textarea class="form-control" rows="10" id="comment">{{patient.first.notes}}</textarea>
+                            <textarea class="form-control" rows="10" id="comment">{{patient.notes}}</textarea>
                         </div>
                     </div>
                 </div>
@@ -261,7 +266,7 @@
                         <br>
                         <h3 class="text-center">Результаты обследования</h3>
                         <div class=" panel-group results" id="accordion">
-                            <div class="panel panel-default" ng-show="anamnezmenu == 11">
+                            <div class="panel panel-default" ng-repeat="investigation in ssmu.anamnez" ng-show="anamnezmenu == 11" >
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
                                         <a data-toggle="collapse" data-parent="#accordion" href="#collapse11">Анамнез жизни</a>
@@ -269,11 +274,11 @@
                                 </div>
                                 <div id="collapse11" class="panel-collapse collapse">
                                     <div class="panel-body">
-                                        {{anamnez.life.text}}
+                                        {{investigation.life}}
                                     </div>
                                 </div>
                             </div>
-                            <div class="panel panel-default" ng-show="anamnezmenu == 12">
+                            <div class="panel panel-default" ng-repeat="investigation in ssmu.anamnez" ng-show="anamnezmenu == 12">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
                                         <a data-toggle="collapse" data-parent="#accordion" href="#collapse12">Анамнез болезни</a>
@@ -281,11 +286,11 @@
                                 </div>
                                 <div id="collapse12" class="panel-collapse collapse">
                                     <div class="panel-body">
-                                        {{anamnez.illness.text}}
+                                        {{investigation.illness}}
                                     </div>
                                 </div>
                             </div>
-                            <div class="panel panel-default" ng-show="anamnezmenu == 13">
+                            <div class="panel panel-default" ng-repeat="investigation in ssmu.anamnez" ng-show="anamnezmenu == 13">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
                                         <a data-toggle="collapse" data-parent="#accordion" href="#collapse13">Анамнез семьи</a>
@@ -293,11 +298,11 @@
                                 </div>
                                 <div id="collapse13" class="panel-collapse collapse">
                                     <div class="panel-body">
-                                        {{anamnez.family.text}}
+                                        {{investigation.family}}
                                     </div>
                                 </div>
                             </div>
-                            <div class="panel panel-default" ng-show="analysismenu == 21">
+                            <div class="panel panel-default" ng-repeat="analysis in ssmu.analysis" ng-show="analysismenu == 21">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
                                         <a data-toggle="collapse" data-parent="#accordion" href="#collapse21">Анализы - общий анализ крови (ОАК)</a>
@@ -305,11 +310,11 @@
                                 </div>
                                 <div id="collapse21" class="panel-collapse collapse">
                                     <div class="panel-body">
-                                        {{analysis.blood.text}}
+                                        {{analysis.blood}}
                                     </div>
                                 </div>
                             </div>
-                            <div class="panel panel-default" ng-show="analysismenu == 22">
+                            <div class="panel panel-default" ng-repeat="analysis in ssmu.analysis" ng-show="analysismenu == 22">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
                                         <a data-toggle="collapse" data-parent="#accordion" href="#collapse22">Анализы - общий анализ мочи (ОАМ)</a>
@@ -317,11 +322,11 @@
                                 </div>
                                 <div id="collapse22" class="panel-collapse collapse">
                                     <div class="panel-body">
-                                        {{analysis.urinalysis.text}}
+                                        {{analysis.urinalysis}}
                                     </div>
                                 </div>
                             </div>
-                            <div class="panel panel-default" ng-show="analysismenu == 23">
+                            <div class="panel panel-default" ng-repeat="analysis in ssmu.analysis" ng-show="analysismenu == 23">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
                                         <a data-toggle="collapse" data-parent="#accordion" href="#collapse23">Анализы - копрограмма</a>
@@ -329,11 +334,11 @@
                                 </div>
                                 <div id="collapse23" class="panel-collapse collapse">
                                     <div class="panel-body">
-                                        {{analysis.coprogram.text}}
+                                        {{analysis.coprogram}}
                                     </div>
                                 </div>
                             </div>
-                            <div class="panel panel-default" ng-show="analysismenu == 24">
+                            <div class="panel panel-default" ng-repeat="analysis in ssmu.analysis" ng-show="analysismenu == 24">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
                                         <a data-toggle="collapse" data-parent="#accordion" href="#collapse24">Анализы - биохимический анализ крови (БАК)</a>
@@ -341,7 +346,7 @@
                                 </div>
                                 <div id="collapse24" class="panel-collapse collapse">
                                     <div class="panel-body">
-                                        {{analysis.biochemical.text}}
+                                        {{analysis.biochemical}}
                                     </div>
                                 </div>
                             </div>
@@ -353,8 +358,8 @@
                                 </div>
                                 <div id="collapse311" class="panel-collapse collapse">
                                     <div class="panel-body">
-                                        <h5 class="text-center">Перкуссия</h5>
-                                        {{analysis.blood.text}}
+
+                                        {{ssmu.moo}}
                                     </div>
                                 </div>
                             </div>
@@ -366,8 +371,7 @@
                                 </div>
                                 <div id="collapse312" class="panel-collapse collapse">
                                     <div class="panel-body">
-                                        <h5 class="text-center">Пальпация</h5>
-                                        {{analysis.urinalysis.text}}
+                                        {{ssmu.moo}}
                                     </div>
                                 </div>
                             </div>
@@ -379,8 +383,7 @@
                                 </div>
                                 <div id="collapse313" class="panel-collapse collapse">
                                     <div class="panel-body">
-                                        <h5 class="text-center">Аскульптация</h5>
-                                        {{analysis.coprogram.text}}
+                                        {{ssmu.moo}}
                                     </div>
                                 </div>
                             </div>
@@ -393,7 +396,7 @@
                                 <div id="collapse321" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <h5 class="text-center">Перкуссия</h5>
-                                        {{analysis.biochemical.text}}
+                                        {{ssmu.moo}}
                                     </div>
                                 </div>
                             </div>
@@ -405,8 +408,7 @@
                                 </div>
                                 <div id="collapse322" class="panel-collapse collapse">
                                     <div class="panel-body">
-                                        <h5 class="text-center">Пальпация</h5>
-                                        {{analysis.biochemical.text}}
+                                        {{ssmu.moo}}
                                     </div>
                                 </div>
                             </div>
@@ -418,8 +420,7 @@
                                 </div>
                                 <div id="collapse323" class="panel-collapse collapse">
                                     <div class="panel-body">
-                                        <h5 class="text-center">Аскульптация</h5>
-                                        {{analysis.biochemical.text}}
+                                        {{ssmu.moo}}
                                     </div>
                                 </div>
                             </div>
@@ -432,7 +433,7 @@
                                 <div id="collapse331" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <h5 class="text-center">Перкуссия</h5>
-                                        {{analysis.biochemical.text}}
+                                        {{ssmu.moo}}
                                     </div>
                                 </div>
                             </div>
@@ -444,8 +445,7 @@
                                 </div>
                                 <div id="collapse332" class="panel-collapse collapse">
                                     <div class="panel-body">
-                                        <h5 class="text-center">Пальпация</h5>
-                                        {{analysis.biochemical.text}}
+                                        {{ssmu.moo}}
                                     </div>
                                 </div>
                             </div>
@@ -457,8 +457,7 @@
                                 </div>
                                 <div id="collapse333" class="panel-collapse collapse">
                                     <div class="panel-body">
-                                        <h5 class="text-center">Аскульптация</h5>
-                                        {{analysis.biochemical.text}}
+                                        {{ssmu.moo}}
                                     </div>
                                 </div>
                             </div>
@@ -488,26 +487,122 @@
         </div>
     </div>
     <div class="section" id="section3" style="height: 100%; background-color: white;">
-        <div class="jumbotron text-center">
-            <h1>My Second Bootstrap Page</h1>
-            <p>Resize this responsive page to see the effect!</p>
+        <div class="page-header center-block text-center page-header-stage1" style="width: 45%">
+            <h2>Пациент 1</h2>
         </div>
-        <div class="container">
+        <div class="container" style="width: 85%">
             <div class="row">
-                <div class="col-sm-4">
-                    <h3>Column 1</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                <div class="col-sm-6" style="height: 350px; width: 50%">
+                    <h3 class="text-center">Тип исследования: </h3><br>
+                    <div class="btn-group btn-group-justified buttons-anamnez">
+                        <div class="btn-group">
+                            <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                КЛД <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#" ng-click="kldmenu = 11">Антинуклеарный фактор</a></li>
+                                <li><a href="#" ng-click="kldmenu = 12">ИФА</a></li>
+                                <li><a href="#" ng-click="kldmenu = 13">Проба Нечипоренко</a></li>
+                            </ul>
+                        </div>
+                        <div class="btn-group">
+                            <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                Лучевая диагностика <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#" ng-click="raddiagnosticmenu = 21">МРТ БП</a></li>
+                            </ul>
+                        </div>
+                        <div class="btn-group">
+                            <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                Эндоскопия <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#" ng-click="endoscopemenu = 31">Ректоманоскопия</a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-sm-4">
-                    <h3>Column 2</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                <div class="col-sm-6 results-tab">
+                    <br>
+                    <h3 class="text-center">Результаты обследования</h3>
+                    <div class=" panel-group results" id="accordion-stage2">
+                        <div class="panel panel-default" ng-repeat="kld in ssmu.typekld" ng-show="kldmenu == 11">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion-stage2" href="#kld11">КЛД - Антинуклеарный фактор</a>
+                                </h4>
+                            </div>
+                            <div id="kld11" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    {{kld.antinuclear}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default" ng-repeat="kld in ssmu.typekld" ng-show="kldmenu == 12">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion-stage2" href="#kld12">КЛД - ИФА</a>
+                                </h4>
+                            </div>
+                            <div id="kld12" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    {{kld.ipa}}                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default" ng-repeat="kld in ssmu.typekld" ng-show="kldmenu == 13">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion-stage2" href="#kld13">КЛД - Проба Нечипоренко</a>
+                                </h4>
+                            </div>
+                            <div id="kld13" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    {{kld.probanech}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default" ng-repeat="raddiagnostic in ssmu.typeraddiagnostic" ng-show="raddiagnosticmenu == 21">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion-stage2" href="#raddiagnostic21">Лучевая диагностика - МРТ БП</a>
+                                </h4>
+                            </div>
+                            <div id="raddiagnostic21" class="panel-collapse collapse raddiagnostic21">
+                                <div class="panel-body" >
+                                    {{raddiagnostic.mrtbp}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default" ng-repeat="endoscope in ssmu.typeendoscope" ng-show="endoscopemenu == 31">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion-stage2" href="#endoscope31">Эндоскопия - Ректоманоскопия</a>
+                                </h4>
+                            </div>
+                            <div id="endoscope31" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    {{endoscope.recktomanoscopy}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-sm-4">
-                    <h3>Column 3</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                <div class="col-sm-12">
+                    <h3 class="text-center">Проверочный тест: </h3><br>
+                    <h4 class="text-center">Сочетание таких качеств как эмоциональная дистанционированность врача от
+                        глубинных проблем пациента, ориентация на симптомы, ориентация на технократический подход к
+                        лечению входит в структуру одного из следующих психологических типов врача</h4>
+                    <br>
+                    <div class="text-center"><label class="radio-inline"><input type="radio" name="optradio">Ригидность</label>
+                        <label class="radio-inline"><input type="radio" name="optradio">Сопереживающего</label>
+                        <label class="radio-inline"><input type="radio"
+                                                           name="optradio">Эмоционально-нейтрального</label>
+                        <label class="radio-inline"><input type="radio" name="optradio">Апатичного</label>
+                        <label class="radio-inline"><input type="radio" name="optradio">Директивного</label>
+                        <label class="radio-inline"><input type="radio" name="optradio">Не директивного</label>
+                    </div>
+                    <br><br>
+                    <button type="button" class="btn btn-success center-block button-square"
+                            onclick="location.href='#stage2'">Выбрать ответ
+                    </button>
                 </div>
             </div>
         </div>

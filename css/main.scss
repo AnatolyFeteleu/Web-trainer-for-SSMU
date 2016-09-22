@@ -98,14 +98,48 @@ textarea {
 }
 
 .btn-primary {
-  background-color: #779cca;
-  border-color: #c7c7c7 !important;
+  background-color: #779cca !important;
+  border-color: #698cb7 !important;
 }
+
 .dropdown-anamnez>li:nth-child(4n-7) {
-    display: block;
-    padding: 3px 20px;
-    clear: both;
-    font-weight: 400;
-    line-height: 1.42857143;
-    white-space: nowrap;
-  }
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: 400;
+  line-height: 1.42857143;
+  white-space: nowrap;
+}
+
+.progress-bar {
+  background-color: #779cca !important;
+}
+
+.progress {
+  background-color: #f1f1f1 !important;
+}
+
+.page-header-stage1 {
+  letter-spacing: 2px;
+  font-family: GothamProRegular;
+}
+
+#section2 h3 {
+  font-family: GothamProRegular;
+}
+
+.page-header {
+  margin-top: 20px !important;
+}
+
+.panel-default>.panel-heading {
+  background-color: #fff !important;
+}
+
+.btn-group-justified {
+  width: initial !important;
+}
+
+.raddiagnostic21{
+  overflow: auto !important;
+}
