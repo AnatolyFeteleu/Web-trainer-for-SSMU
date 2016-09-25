@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
@@ -108,7 +109,7 @@
             </button>
         </div>
         <div class="collapse navbar-collapse " id="myNavbar">
-            <ul class="nav navbar-nav" id="menu">
+            <ul class="nav navbar-nav" id="menu" style="margin: inherit">
                 <li class="active" data-menuanchor="welcome-page"><a href="#welcome-page"><span class="glyphicon glyphicon-home"></span></a></li>
                 <!--<li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Заголовок 1
@@ -139,7 +140,7 @@
         <div class="jumbotron text-center">
             <h1>Добро пожаловать!</h1>
             <p>Основная цель данного веб-тренажера - это развитие аналитического мышления,
-                а также закрепление знаний и навыков полученных в высших медицинских учреждениях.</p>
+                а также закрепление знаний и навыков, полученных в высших медицинских учреждениях.</p>
         </div>
         <div class="container">
             <h2 class="text-center">Основные правила использования:</h2>
@@ -159,7 +160,7 @@
             </div>
         </div>
     </div>
-    <div class="section" id="section1" style="height: 100%; background-color: white">
+    <div class="section" id="patients" style="height: 100%; background-color: white">
         <!-- Теги и прочее -->
         <div class="jumbotron text-center">
             <h1>Выбор пациента</h1>
@@ -196,27 +197,27 @@
             </div>
         </div>
     </div>
-    <div class="section" id="section2" style="height: 100%; background-color: white">
+    <div class="section" id="section1" style="height: 100%; background-color: white">
         <div class="page-header center-block text-center page-header-stage1" style="width: 45%">
             <h2>Пациент 1</h2>
         </div>
         <div class="container">
             <div class="row">
                 <div class="col-sm-5">
-                    <h3 class="text-center">Исходные данные: </h3>
+                    <h4 class="text-center">Исходные данные: </h4>
                     <br>
                     <div class="patients text-justify" ng-repeat='patient in ssmu.patients'>
                         <p><span>Половая принадлежнотсь:</span> {{patient.gender}}.</p>
                         <p><span>Возраст:</span> {{patient.age}} лет.</p>
                         <div class="form-group">
                             <p><span>Заметки:</span></p>
-                            <textarea class="form-control" rows="10" id="comment">{{patient.notes}}</textarea>
+                            <textarea class="form-control" rows="7" id="comment">{{patient.notes}}</textarea>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-1"></div>
                 <div class="col-sm-6">
-                    <h3 class="text-center">Обследование: </h3><br>
+                    <h4 class="text-center">Обследование: </h4><br>
                     <div class="btn-group btn-group-justified buttons-anamnez">
                         <div class="btn-group">
                             <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
@@ -264,7 +265,7 @@
                     </div>
                     <div class="col-sm-12 results-tab">
                         <br>
-                        <h3 class="text-center">Результаты обследования</h3>
+                        <h4 class="text-center">Результаты обследования</h4>
                         <div class=" panel-group results" id="accordion">
                             <div class="panel panel-default" ng-repeat="investigation in ssmu.anamnez" ng-show="anamnezmenu == 11" >
                                 <div class="panel-heading">
@@ -465,10 +466,10 @@
                     </div>
                 </div>
                 <div class="col-sm-12">
-                    <h3 class="text-center">Проверочный тест: </h3><br>
-                    <h4 class="text-center">Сочетание таких качеств как эмоциональная дистанционированность врача от
+                    <h4 class="text-center">Проверочный тест: </h4><br>
+                    <h5 class="text-center">Сочетание таких качеств как эмоциональная дистанционированность врача от
                         глубинных проблем пациента, ориентация на симптомы, ориентация на технократический подход к
-                        лечению входит в структуру одного из следующих психологических типов врача</h4>
+                        лечению входит в структуру одного из следующих психологических типов врача</h5>
                     <br>
                     <div class="text-center"><label class="radio-inline"><input type="radio" name="optradio">Ригидность</label>
                         <label class="radio-inline"><input type="radio" name="optradio">Сопереживающего</label>
@@ -478,7 +479,7 @@
                         <label class="radio-inline"><input type="radio" name="optradio">Директивного</label>
                         <label class="radio-inline"><input type="radio" name="optradio">Не директивного</label>
                     </div>
-                    <br><br>
+                    <br>
                     <button type="button" class="btn btn-success center-block button-square"
                             onclick="location.href='#stage2'">Выбрать ответ
                     </button>
@@ -486,14 +487,14 @@
             </div>
         </div>
     </div>
-    <div class="section" id="section3" style="height: 100%; background-color: white;">
+    <div class="section" id="section2" style="height: 100%; background-color: white;">
         <div class="page-header center-block text-center page-header-stage1" style="width: 45%">
             <h2>Пациент 1</h2>
         </div>
         <div class="container" style="width: 85%">
             <div class="row">
                 <div class="col-sm-6" style="height: 350px; width: 50%">
-                    <h3 class="text-center">Тип исследования: </h3><br>
+                    <h4 class="text-center">Тип исследования: </h4><br>
                     <div class="btn-group btn-group-justified buttons-anamnez">
                         <div class="btn-group">
                             <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
@@ -522,7 +523,7 @@
                 </div>
                 <div class="col-sm-6 results-tab">
                     <br>
-                    <h3 class="text-center">Результаты обследования</h3>
+                    <h4 class="text-center">Результаты обследования</h4>
                     <div class=" panel-group results" id="accordion-stage2">
                         <div class="panel panel-default" ng-repeat="kld in ssmu.typekld" ng-show="kldmenu == 11">
                             <div class="panel-heading">
@@ -586,11 +587,10 @@
                     </div>
                 </div>
                 <div class="col-sm-12">
-                    <h3 class="text-center">Проверочный тест: </h3><br>
-                    <h4 class="text-center">Сочетание таких качеств как эмоциональная дистанционированность врача от
+                    <h4 class="text-center">Проверочный тест: </h4><br>
+                    <h5 class="text-center">Сочетание таких качеств как эмоциональная дистанционированность врача от
                         глубинных проблем пациента, ориентация на симптомы, ориентация на технократический подход к
-                        лечению входит в структуру одного из следующих психологических типов врача</h4>
-                    <br>
+                        лечению входит в структуру одного из следующих психологических типов врача</h5>
                     <div class="text-center"><label class="radio-inline"><input type="radio" name="optradio">Ригидность</label>
                         <label class="radio-inline"><input type="radio" name="optradio">Сопереживающего</label>
                         <label class="radio-inline"><input type="radio"
@@ -599,7 +599,7 @@
                         <label class="radio-inline"><input type="radio" name="optradio">Директивного</label>
                         <label class="radio-inline"><input type="radio" name="optradio">Не директивного</label>
                     </div>
-                    <br><br>
+                    <br>
                     <button type="button" class="btn btn-success center-block button-square"
                             onclick="location.href='#stage2'">Выбрать ответ
                     </button>
@@ -607,7 +607,7 @@
             </div>
         </div>
     </div>
-    <div class="section" id="section4" style="height: 100%; background-color: white;">
+    <div class="section" id="section3" style="height: 100%; background-color: white;">
         <div class="jumbotron text-center">
             <h1>My Third Bootstrap Page</h1>
             <p>Resize this responsive page to see the effect!</p>
@@ -632,7 +632,7 @@
             </div>
         </div>
     </div>
-    <div class="section" id="section5" style="height: 100%; background-color: white;">
+    <div class="section" id="section4" style="height: 100%; background-color: white;">
         <div class="jumbotron text-center">
             <h1>My Fourth Bootstrap Page</h1>
             <p>Resize this responsive page to see the effect!</p>
@@ -660,5 +660,6 @@
 </div>
 <!-- Controllers -->
 <script src="js/controllers/main.controller.js"></script>
+
 </body>
 </html>

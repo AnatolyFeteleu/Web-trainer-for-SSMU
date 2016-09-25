@@ -25,6 +25,9 @@
 body {
   background-color: #f1f1f1; }
 
+.section {
+  height: 150%; }
+
 ul li {
   list-style-type: none; }
 
@@ -41,7 +44,7 @@ ul li {
   position: relative;
   line-height: 30px;
   margin-bottom: -1px;
-  margin-top: 2.5px;
+  margin-top: 0px;
   color: white; }
   #myNavbar:last-child p {
     font-family: GothamProLight;
@@ -58,7 +61,6 @@ ul li {
 
 textarea {
   width: 90%;
-  height: 200px;
   resize: none; }
 
 .patients span {
