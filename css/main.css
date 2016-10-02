@@ -106,4 +106,59 @@ textarea {
 .raddiagnostic21 {
   overflow: auto !important; }
 
+.diagnosis, .fdiagnosis {
+  margin: inherit;
+  padding: inherit;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  height: 350px;
+  overflow-y: auto; }
+  .diagnosis ul, .fdiagnosis ul {
+    margin: inherit;
+    padding: inherit; }
+    .diagnosis ul li, .fdiagnosis ul li {
+      margin-top: 25px; }
+  .diagnosis .s3, .fdiagnosis .s3 {
+    color: #5f5f5f;
+    border: 2px solid transparent;
+    text-decoration: none;
+    display: inline-block;
+    padding: 5px 10px;
+    letter-spacing: 1px;
+    margin: 0 20px;
+    transition: .3s ease-in-out; }
+    .diagnosis .s3:hover, .fdiagnosis .s3:hover {
+      border: 2px solid #779cca; }
+
+.epikriz, .list {
+  margin: inherit;
+  padding: inherit;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  height: 350px;
+  overflow-y: auto; }
+  .epikriz h5, .list h5 {
+    margin-top: 25px; }
+    .epikriz h5 a, .list h5 a {
+      color: #5f5f5f;
+      font-size: 15px; }
+
+.list li {
+  margin-top: 25px; }
+  .list li a {
+    color: #5f5f5f;
+    font-size: 15px; }
+
+.stages h4:nth-child(n+2) {
+  margin-top: 15px; }
+
+.testing h4:nth-child(n+2) {
+  margin-top: 15px; }
+
+.total h4:nth-child(n+2) {
+  margin-top: 15px; }
+
+.statistics .col-sm-6 {
+  margin-top: 15px; }
+
 /*# sourceMappingURL=main.css.map */

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/profile.css">
+    <link rel="stylesheet" type="text/css" href="css/layout/header.css" />
+
+    <!-- jQuery library -->
+    <script type="text/javascript" src="js/jquery-1.12.2.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('[data-toggle="tooltip-total"]').tooltip();
+        });
+        $(document).ready(function() {
+            $('#pagepiling').pagepiling({
+                menu: '#menu',
+                direction: 'horizontal',
+                verticalCentered: true,
+                sectionsColor: [],
+                anchors: ['welcome-page', 'patient','stage1', 'stage2', 'stage3', 'stage4'],
+                navigation: {
+                    'textColor': '#000',
+                    'bulletsColor': '#000',
+                    'position': 'right',
+                    'tooltips': ['Приветствие','Выбор пациента','Этап 1', 'Этап 2', 'Этап 3', 'Этап 4']
+                },
+                scrollingSpeed: 700,
+                easing: 'swing',
+                loopBottom: false,
+                loopTop: false,
+                css3: true,
+                normalScrollElements: null,
+                normalScrollElementTouchThreshold: 5,
+                touchSensitivity: 5,
+                keyboardScrolling: true,
+                sectionSelector: '.section',
+                animateAnchor: true,
+
+                //events
+                onLeave: function(index, nextIndex, direction){},
+                afterRender: function(){
+                    $('#pp-nav').addClass('custom');
+                },
+                afterLoad: function(anchorLink, index){
+                    if(index>1){
+                        $('#pp-nav').removeClass('custom');
+                    }else{
+                        $('#pp-nav').addClass('custom');
+                    }
+                }
+            });
+        });
+    </script>
+    <title>Тренажер СибГМУ</title>
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="50" ng-app="AngApp" style="background-color: #f1f1f1;"><br><br>
+<nav class="navbar navbar-inverse navbar-fixed-top" style="background-color: #5f5f5f;">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse " id="myNavbar">
+            <ul class="nav navbar-nav" id="menu" style="margin: inherit">
+                <li class="active" data-menuanchor="welcome-page"><a href="authorized.html#welcome-page"><span class="glyphicon glyphicon-home"></span></a></li>
+                <!--<li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Заголовок 1
+                        <span class="caret"></span></a>
+                        <ul class="dropdown-menu" style="z-index: 9999999;">
+                            <li><a href="#">Подзаголовок 1</a></li>
+                            <li><a href="#">Подзаголовок 2</a></li>
+                            <li><a href="#">Подзаголовок 3</a></li>
+                        </ul>
+                </li>-->
+                <li data-menuanchor="patient"><a href="authorized.html#patient">Выбор пациента</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" class="modal-dialog-font">
+                <li><a href="profile.html"><span class="glyphicon glyphicon-log-in"></span> Личный кабинет</a></li>
+                <li><a href="index.html"><span class="glyphicon glyphicon-log-out"></span> Выход</a></li>
+            </ul>
+            <p class="text-center">Медицинский интерактивный тренажер</p>
+        </div>
+    </div>
+</nav>
+<div class="modal fade" id="totalmistakes" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title text-center">Список ошибок:</h4>
+            </div>
+            <div class="modal-body">
+                <h4>Этап 1:</h4>
+                <p>Ошибка:</p>
+                <p>Пояснение правильного ответа:</p>
+                <h4>Этап 2:</h4>
+                <p>Ошибка:</p>
+                <p>Пояснение правильного ответа:</p>
+                <h4>Этап 3:</h4>
+                <p>Ошибка:</p>
+                <p>Пояснение правильного ответа:</p>
+                <h4>Этап 4:</h4>
+                <p>Ошибка:</p>
+                <p>Пояснение правильного ответа:</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div style="background-color: #fff; height: auto">
+    <div class="jumbotron text-center">
+        <h1>Пациент 1</h1>
+        <h3>Вы завершил лечение.</h3><br>
+        <h4>Количество набранных баллов: <b>65</b>.</h4>
+    </div>
+    <div class="container">
+        <div class="col-sm-12">
+            <div class="page-header center-block text-center page-header-stage1" style="width: 45%">
+                <h2>Статистика:</h2>
+            </div>
+            <div class="container statistics">
+                <div class="col-sm-6 total">
+                    <h4 class="text-center text-uppercase">Общая статистика: </h4><br>
+                    <h4><a href="#" data-toggle="modal" data-target="#totalmistakes" title="Нажмите для подробного отчета" style="color: #000;">Вы допустили <b>2</b> ошибки.</a></h4>
+                    <h4>Общее количество баллов: 65.</h4>
+                </div>
+
+                <div class="col-sm-6 stages">
+                    <h4 class="text-center text-uppercase">Этапы: </h4><br>
+                    <h4>Этап 1: "0";</h4>
+                    <h4>Этап 2: "1".</h4>
+                    <h4>Этап 3: "0";</h4>
+                    <h4>Этап 4: "1".</h4>
+                </div>
+                <div class="col-sm-6"></div>
+                <div class="col-sm-6 testing">
+                    <h4 class="text-center text-uppercase">Тестирование: </h4><br>
+                    <h4>Тестирование 1: "0";</h4>
+                    <h4>Тестирование 2: "1".</h4>
+                </div>
+            </div>
+            <br><br>
+            <button type="button" class="btn btn-success center-block button-square"
+                    onclick="location.href='authorized.html#patient'">Выбор пациента
+            </button>
+            <br><br>
+        </div>
+    </div>
+</div>
+</body>
+</html>

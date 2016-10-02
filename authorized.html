@@ -17,6 +17,19 @@
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/jquery.pagepiling.js"></script>
     <script type="text/javascript">
+        $(document).ready(function(){
+            $('[data-toggle="Краткое описание"]').popover();
+            $('[data-toggle="Назначение"]').popover();
+        });
+
+        $(function() {
+            $('#typeofdiagnosis').change(function(){
+                $('.text-diagnosis').hide();
+                $('#' + $(this).val()).show();
+            });
+        });
+
+
         $(document).ready(function() {
             $('#pagepiling').pagepiling({
                 menu: '#menu',
@@ -567,7 +580,7 @@
                                 </h4>
                             </div>
                             <div id="raddiagnostic21" class="panel-collapse collapse raddiagnostic21">
-                                <div class="panel-body" >
+                                <div class="panel-body">
                                     {{raddiagnostic.mrtbp}}
                                 </div>
                             </div>
@@ -601,61 +614,202 @@
                     </div>
                     <br>
                     <button type="button" class="btn btn-success center-block button-square"
-                            onclick="location.href='#stage2'">Выбрать ответ
+                            onclick="location.href='#stage3'">Выбрать ответ
                     </button>
                 </div>
             </div>
         </div>
     </div>
     <div class="section" id="section3" style="height: 100%; background-color: white;">
-        <div class="jumbotron text-center">
-            <h1>My Third Bootstrap Page</h1>
-            <p>Resize this responsive page to see the effect!</p>
+        <div class="page-header center-block text-center page-header-stage1" style="width: 45%">
+            <h2>Пациент 1</h2>
         </div>
         <div class="container">
             <div class="row">
                 <div class="col-sm-4">
-                    <h3>Column 1</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                    <h4 class="text-center">Тип диагноза: </h4><br>
+                    <div class="form-group">
+                        <select class="form-control" id="typeofdiagnosis">
+                            <option disabled>Выберите...</option>
+                            <option value="K00">K00 - Нарушения развития и прорезывания зубов</option>
+                            <option value="K01">K01 - Ретенированные и импактные зубы</option>
+                            <option value="K02">K02 - Кариес зубов</option>
+                            <option value="K03">K03 - Другие болезни твердых тканей зубов</option>
+                            <option value="K04">K04 - Болезни пульпы и периапикальных тканей</option>
+                            <option value="K05">K05 - Гингивит и болезнь пародонта</option>
+                            <option value="K06">K06 - Другие изменения десны и беззубого альвеолярного края</option>
+                            <option value="K07">K07 - Челюстно-лицевые аномалии [включая аномалии прикуса]</option>
+                            <option value="K08">K08 - Другие изменения зубов и их опорного аппарата</option>
+                            <option value="K09">K09 - Кисты области рта, не классифицированные в других рубриках</option>
+                            <option value="K10">K10 - Другие болезни челюстей</option>
+                            <option value="K11">K11 - Болезни слюнных желез</option>
+                            <option value="K12">K12 - Стоматит и родственные поражения</option>
+                            <option value="K13">K13 - Другие болезни губ и слизистой оболочки полости рта</option>
+                            <option value="K14">K14 - Болезни языка</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="col-sm-4">
-                    <h3>Column 2</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                    <h4 class="text-center">Диагноз: </h4><br>
+                    <div class="diagnosis">
+                        <ul class="text-center text-diagnosis" id="K00" style="display: none;">
+                            <li id="K000"><a href="" class="s3">K00.0 Адентия</a></li>
+                            <li><a href="" class="s3">K00.00 Частичная адентия (Гиподентия. Олигодентия)</a></li>
+                            <li><a href="" class="s3">K00.01 Полная адентия</a></li>
+                            <li><a href="" class="s3">K00.09 Адентия не уточненная</a></li>
+                            <li><a href="" class="s3">K00.1 Сверхкомплектные зубы</a></li>
+                            <li><a href="" class="s3">K00.10 Областей резца и клыка.Мезиодентия (средний зуб)</a></li>
+                            <li><a href="" class="s3">K00.11 Области премоляров</a></li>
+                            <li><a href="" class="s3">K00.12 Области моляров. Дистомолярный зуб. Четвертый моляр. Парамолярный зуб</a></li>
+                            <li><a href="" class="s3">K00.19 Сверхкомплектные зубы не уточненные</a></li>
+                        </ul>
+                        <ul class="text-center text-diagnosis" id="K01" style="display: none;">
+                            <li><a href="" class="s3">K01.0 Ретенированные зубы</a></li>
+                            <li><a href="" class="s3">K01.1 Импактные зубы</a></li>
+                            <li><a href="" class="s3">K01.10 Резец верхней челюсти</a></li>
+                            <li><a href="" class="s3">K01.11 Резец нижней челюсти</a></li>
+                            <li><a href="" class="s3">K01.12 Клык верхней челюсти</a></li>
+                            <li><a href="" class="s3">K01.13 Клык нижней челюсти</a></li>
+                            <li><a href="" class="s3">K01.14 Премоляр верхней челюсти</a></li>
+                        </ul>
+                        <ul class="text-center text-diagnosis" id="K02" style="display: none;">
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                        </ul>
+                        <ul class="text-center text-diagnosis" id="K03" style="display: none;">
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                        </ul>
+                        <ul class="text-center text-diagnosis" id="K04" style="display: none;">
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                        </ul>
+                        <ul class="text-center text-diagnosis" id="K05" style="display: none;">
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                        </ul>
+                        <ul class="text-center text-diagnosis" id="K06" style="display: none;">
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                        </ul>
+                        <ul class="text-center text-diagnosis" id="K07" style="display: none;">
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                        </ul>
+                        <ul class="text-center text-diagnosis" id="K08" style="display: none;">
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                        </ul>
+                        <ul class="text-center text-diagnosis" id="K09" style="display: none;">
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                        </ul>
+                        <ul class="text-center text-diagnosis" id="K10" style="display: none;">
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                        </ul>
+                        <ul class="text-center text-diagnosis" id="K11" style="display: none;">
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                        </ul>
+                        <ul class="text-center text-diagnosis" id="K12" style="display: none;">
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                        </ul>
+                        <ul class="text-center text-diagnosis" id="K13" style="display: none;">
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                        </ul>
+                        <ul class="text-center text-diagnosis" id="K14" style="display: none;">
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                            <li><a href="" class="s3">gkgkjgkjgkj</a></li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="col-sm-4">
-                    <h3>Column 3</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                    <h4 class="text-center">Заключительный диагноз: </h4><br>
+                    <div class="fdiagnosis">
+                        <ul id="copyli">
+                            <li></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
+        <br>
+        <br><button type="button" class="btn btn-success center-block button-square"
+                onclick="location.href='#stage4'">Подтвердить!
+        </button>
+        <input type="button" value="Test It" id="change"/>
     </div>
     <div class="section" id="section4" style="height: 100%; background-color: white;">
-        <div class="jumbotron text-center">
-            <h1>My Fourth Bootstrap Page</h1>
-            <p>Resize this responsive page to see the effect!</p>
+        <div class="page-header center-block text-center page-header-stage1" style="width: 45%">
+            <h2>Пациент 1</h2>
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-sm-4">
-                    <h3>Column 1</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                <div class="col-sm-6">
+                    <h3 class="text-center">Эпикриз:</h3>
+                    <div class="epikriz">
+                        <h5>
+                            <a href="#" title="Краткое описание" data-toggle="Краткое описание" data-placement="bottom" data-content="...">K03 - Другие болезни твердых тканей зубов</a>
+                        </h5>
+                    </div>
                 </div>
-                <div class="col-sm-4">
-                    <h3>Column 2</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-                </div>
-                <div class="col-sm-4">
-                    <h3>Column 3</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                <div class="col-sm-6">
+                    <h3 class="text-center"> Лист назначений:</h3>
+                    <div class="list">
+                        <ol>
+                            <li><a href="#" title="Краткое описание" data-toggle="Назначение" data-placement="bottom" data-content="...">Назначение</a>
+                            </li>
+                        </ol>
+                    </div>
                 </div>
             </div>
         </div>
+        <br><br>
+        <button type="button" class="btn btn-success center-block button-square"
+                onclick="location.href='analysis.html'">Анализ работы
+        </button>
     </div>
 </div>
 <!-- Controllers -->
