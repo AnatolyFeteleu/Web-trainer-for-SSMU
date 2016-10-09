@@ -10,13 +10,19 @@
     <link rel="stylesheet" type="text/css" href="css/jquery.pagepiling.css">
 
     <!-- jQuery library -->
-    <script type="text/javascript" src="js/jquery-1.12.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery-1.12.2.min.js" ></script>
 
     <!-- Latest compiled JavaScript -->
     <script type="text/javascript" src="js/angular.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/jquery.pagepiling.js"></script>
     <script type="text/javascript">
+        $(document).ready(function () {
+            $("#K0001").click(function () {
+                $("#K0001Zakl").show();
+            });
+        });
+
         $(document).ready(function(){
             $('[data-toggle="Краткое описание"]').popover();
             $('[data-toggle="Назначение"]').popover();
@@ -28,7 +34,6 @@
                 $('#' + $(this).val()).show();
             });
         });
-
 
         $(document).ready(function() {
             $('#pagepiling').pagepiling({
@@ -51,7 +56,7 @@
                 normalScrollElements: null,
                 normalScrollElementTouchThreshold: 5,
                 touchSensitivity: 5,
-                keyboardScrolling: true,
+                keyboardScrolling: false,
                 sectionSelector: '.section',
                 animateAnchor: true,
 
@@ -653,9 +658,9 @@
                     <h4 class="text-center">Диагноз: </h4><br>
                     <div class="diagnosis">
                         <ul class="text-center text-diagnosis" id="K00" style="display: none;">
-                            <li id="K000"><a href="" class="s3">K00.0 Адентия</a></li>
+                            <li><a href="" class="s3">K00.0 Адентия</a></li>
                             <li><a href="" class="s3">K00.00 Частичная адентия (Гиподентия. Олигодентия)</a></li>
-                            <li><a href="" class="s3">K00.01 Полная адентия</a></li>
+                            <li><a href="#" class="s3" id="K0001">K00.01 Полная адентия</a></li>
                             <li><a href="" class="s3">K00.09 Адентия не уточненная</a></li>
                             <li><a href="" class="s3">K00.1 Сверхкомплектные зубы</a></li>
                             <li><a href="" class="s3">K00.10 Областей резца и клыка.Мезиодентия (средний зуб)</a></li>
@@ -767,19 +772,17 @@
                 </div>
                 <div class="col-sm-4">
                     <h4 class="text-center">Заключительный диагноз: </h4><br>
-                    <div class="fdiagnosis">
-                        <ul id="copyli">
-                            <li></li>
-                        </ul>
-                    </div>
+                    <ul class="end-diagnosis text-center">
+                        <li id="K0001Zakl" style="display: none;">То что нужно</li>
+                        <hr style="margin-top: 5px">
+                    </ul>
                 </div>
             </div>
         </div>
         <br>
         <br><button type="button" class="btn btn-success center-block button-square"
-                onclick="location.href='#stage4'">Подтвердить!
-        </button>
-        <input type="button" value="Test It" id="change"/>
+                    onclick="location.href='#stage4'">Подтвердить!
+    </button>
     </div>
     <div class="section" id="section4" style="height: 100%; background-color: white;">
         <div class="page-header center-block text-center page-header-stage1" style="width: 45%">
@@ -791,7 +794,7 @@
                     <h3 class="text-center">Эпикриз:</h3>
                     <div class="epikriz">
                         <h5>
-                            <a href="#" title="Краткое описание" data-toggle="Краткое описание" data-placement="bottom" data-content="...">K03 - Другие болезни твердых тканей зубов</a>
+                            <a href="#" id="epirkiz-text" title="Краткое описание" data-toggle="Краткое описание" data-placement="bottom" data-content="...">K00.01 - Полная адентия</a>
                         </h5>
                     </div>
                 </div>
